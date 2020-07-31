@@ -24,7 +24,7 @@ class IAppium(unittest.TestCase):
         # desired_caps['app'] = f'{os.path.abspath(os.curdir)}/app/ContactManager.apk'
 
         p=Path()
-        desired_caps['app'] = f'{p.cwd().parent}/app/ContactManager.apk'
+        desired_caps['app'] = f'{p.cwd()}/app/ContactManager.apk'
         print('-----------------------------over--------')
         print(desired_caps['app'] )
 
