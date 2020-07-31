@@ -6,7 +6,7 @@ from pytest_testconfig import config
 
 timeout = 30
 poll = 2
-
+from pathlib import Path
 
 class IAppium(unittest.TestCase):
 
@@ -20,12 +20,13 @@ class IAppium(unittest.TestCase):
         desired_caps['appActivity'] = config['desired_caps']['appActivity']
         desired_caps['automationName'] = config['desired_caps']['automationName']
         desired_caps['noReset'] = config['desired_caps']['noReset']
-        # D:\jekins_slave_home\workspace\iappium / app / ContactManager.apk
-        desired_caps['app'] = f'{os.path.abspath(os.curdir)}/app/ContactManager.apk'
-        print("--------------------------------------------over--------------")
-        print(desired_caps['app'])
-        # desired_caps['app'] = f'{os.path.split(os.getcwd())[0]}/app/ContactManager.apk'
+        # D:\jekins_slave_home\workspace\iappium\iAppium_python / app / ContactManager.apk
+        # desired_caps['app'] = f'{os.path.abspath(os.curdir)}/app/ContactManager.apk'
 
+        p=Path()
+        desired_caps['app'] = f'{p.cwd().parent}/app/ContactManager.apk'
+        print('-----------------------------over--------')
+        print(desired_caps['app'] )
 
         self.driver = webdriver.Remote(appium_server_url, desired_caps)
 
