@@ -22,6 +22,8 @@ class IAppium(unittest.TestCase):
         desired_caps['noReset'] = config['desired_caps']['noReset']
         # D:\jekins_slave_home\workspace\iappium / app / ContactManager.apk
         desired_caps['app'] = f'{os.path.abspath(os.curdir)}/app/ContactManager.apk'
+        print("--------------------------------------------over--------------")
+        print(desired_caps['app'])
         # desired_caps['app'] = f'{os.path.split(os.getcwd())[0]}/app/ContactManager.apk'
 
 
